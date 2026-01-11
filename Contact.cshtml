@@ -1,0 +1,88 @@
+﻿@model FreshShop.Models.Contact
+
+@{
+    ViewData["Title"] = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Title -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Hỗ Trợ</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+                    <li class="breadcrumb-item active">Hỗ Trợ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+
+            <!-- FORM -->
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>GỬI LIÊN HỆ</h2>
+
+                    <form asp-action="Contact" method="post">
+                        <div class="form-group mb-2">
+                            <input asp-for="Ten"
+                                   class="form-control"
+                                   placeholder="Tên của bạn" required />
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <input asp-for="Email"
+                                   type="email"
+                                   class="form-control"
+                                   placeholder="Email" required />
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <input asp-for="ChuDe"
+                                   class="form-control"
+                                   placeholder="Chủ đề" required />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <textarea asp-for="NoiDung"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Nội dung" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            Gửi liên hệ
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-4 col-sm-12">
+                <div class="contact-info-left">
+                    <h2>Thông tin cửa hàng</h2>
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-success mt-3">
+                            @ViewBag.Message
+                        </div>
+                    }
+
+                    <ul>
+                        <li>📍 FreshShop - Nghệ An</li>
+                        <li>📞 0385 436 576</li>
+                        <li>📧 freshshop@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
