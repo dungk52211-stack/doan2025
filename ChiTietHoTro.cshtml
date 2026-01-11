@@ -1,0 +1,28 @@
+﻿@model Contact
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h4>📩 Chi tiết hỗ trợ</h4>
+
+<p><b>Tên:</b> @Model.Ten</p>
+<p><b>Email:</b> @Model.Email</p>
+<p><b>Ngày gửi:</b> @Model.NgayGui</p>
+
+<div class="border p-3 mb-3">
+    <b>Nội dung:</b><br />
+    @Model.NoiDung
+</div>
+
+<form asp-action="PhanHoiHoTro" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label>Phản hồi</label>
+        <textarea name="phanHoi" class="form-control" rows="4"
+                  required>@Model.PhanHoi</textarea>
+    </div>
+
+    <button class="btn btn-success">📤 Gửi phản hồi</button>
+    <a asp-action="HoTro" class="btn btn-secondary">⬅ Quay lại</a>
+</form>
