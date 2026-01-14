@@ -1,0 +1,16 @@
+﻿@model FreshShop.Models.Blog
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h2>Thêm Blog</h2>
+
+<form asp-action="BlogCreate" method="post" enctype="multipart/form-data">
+    <input asp-for="TieuDe" class="form-control mb-2" placeholder="Tiêu đề" />
+    <textarea asp-for="MoTaNgan" class="form-control mb-2" placeholder="Mô tả ngắn"></textarea>
+    <textarea asp-for="NoiDung" class="form-control mb-2" rows="6" placeholder="Nội dung"></textarea>
+
+    <input type="file" name="imageFile" class="form-control mb-2" />
+
+    <button class="btn btn-success">Lưu</button>
+</form>
